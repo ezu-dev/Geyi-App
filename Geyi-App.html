@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="om">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geyi-App | Delivery Salphaa</title>
+    <style>
+        /* CSS: Miidhagina Appii */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        header {
+            background-color: #28a745;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .container {
+            padding: 20px;
+            max-width: 500px;
+            margin: auto;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h2 { color: #28a745; font-size: 1.2rem; }
+        select, input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            background-color: #28a745;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover { background-color: #218838; }
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Geyi-App</h1>
+    <p>Harar Delivery - Saffisaan!</p>
+</header>
+
+<div class="container">
+    <div class="card">
+        <h2>Ajaja Haaraa Galmeessi</h2>
+        
+        <label>Kutaa Meeshaa:</label>
+        <select id="category">
+            <option value="Electronics">Electronics (Bilbila, Charger...)</option>
+            <option value="Nyaata">Nyaata & Dhugaatii</option>
+            <option value="Dukaana">Bittaa Dukaanaa (Grocery)</option>
+            <option value="Ergaa">Ergaa & Galmee (Documents)</option>
+            <option value="Qoricha">Qoricha (Pharmacy)</option>
+        </select>
+
+        <label>Maqaa Meeshaa:</label>
+        <input type="text" id="itemName" placeholder="Fakkeenya: Samsung Charger">
+
+        <label>Ulfatina (kg):</label>
+        <input type="number" id="weight" placeholder="Max: 5kg" step="0.1">
+
+        <button onclick="processOrder()">Amma Ajajadhu</button>
+    </div>
+
+    <div id="status" class="footer"></div>
+</div>
+
+<script>
+    /* JavaScript: Hojii Appii */
+    function processOrder() {
+        const category = document.getElementById('category').value;
+        const itemName = document.getElementById('itemName').value;
+        const weight = document.getElementById('weight').value;
+        const status = document.getElementById('status');
+
+        // Check if empty
+        if (itemName === "" || weight === "") {
+            alert("Maaloo, odeeffannoo guutuu galchaa!");
+            return;
+        }
+
+        // Validate weight (Lightweight only)
+        if (parseFloat(weight) > 5) {
+            alert("Dhiifama, Geyi-App meeshaalee 5kg ol ta'an hin baatu.");
+            status.innerHTML = "<span style='color:red;'>Dogoggora: Ulfatina hir'isaa.</span>";
+        } else {
+            // Success Message
+            alert("Ajajni keessan fudhatameera!\n\nKutaa: " + category + "\nMeeshaa: " + itemName + "\nUlfatina: " + weight + "kg");
+            
+            status.innerHTML = "<span style='color:green;'>Ajajni '" + itemName + "' karaa jira!</span>";
+            
+            // Reset fields
+            document.getElementById('itemName').value = "";
+            document.getElementById('weight').value = "";
+        }
+    }
+</script>
+
+</body>
+</html>
