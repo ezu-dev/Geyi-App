@@ -1,0 +1,15 @@
+{
+  "name": "Geyi-App Harar Delivery",
+  "short_name": "Geyi-App",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#28a745",
+  "icons": [
+    {
+      "src": "file_Gey.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
