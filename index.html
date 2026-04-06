@@ -3,126 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="google-site-verification" content="yVszcL6OGeyv5ETid-6Inp3w-o2-Gb-np24XPKPZwtM"/>
-    <title>Geyi-App | Delivery Salphaa</title>
-      <style>
-        /* CSS: Miidhagina Appii */
+    <meta name="google-site-verification" content="yVszcL6OGeyv5ETid-6Inp3w-o2-Gb-np24XPKPZwtM"/>
+    <title>Geyi-App | Harar Delivery</title>
+    <style>
+        :root {
+            --primary: #28a745;
+            --dark: #1e1e1e;
+            --light: #f4f4f4;
+            --white: #ffffff;
+        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            color: #333;
+            background-color: var(--light);
+            color: var(--dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        header {
-            background-color: #28a745;
-            color: white;
-            padding: 20px;
+        /* LOGO DESIGN */
+        .logo-container {
+            margin-top: 30px;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        .container {
-            padding: 20px;
-            max-width: 500px;
-            margin: auto;
+        .logo-circle {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), #20c997);
+            border-radius: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(40, 167, 69, 0.2);
+            margin: 0 auto;
         }
+        header h1 { margin: 10px 0 5px 0; font-size: 24px; }
+        header p { margin: 0; color: #777; font-size: 14px; }
+
         .card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
+            width: 90%;
+            max-width: 400px;
+            background: var(--white);
+            padding: 25px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            margin: 25px 0;
         }
-        h2 { color: #28a745; font-size: 1.2rem; }
+
+        .input-group { margin-bottom: 15px; }
+        label { font-weight: 600; font-size: 13px; color: #555; display: block; margin-bottom: 7px; }
+        
         select, input {
             width: 100%;
             padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            font-size: 15px;
+            transition: 0.3s;
             box-sizing: border-box;
         }
-        button {
+        select:focus, input:focus { border-color: var(--primary); outline: none; background: #fafafa; }
+
+        .price-box {
+            background: #f8fff9;
+            border: 1px dashed var(--primary);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+        }
+        .price-box span { font-size: 22px; font-weight: 800; color: var(--primary); }
+
+        .order-btn {
             width: 100%;
-            background-color: #28a745;
+            background: var(--primary);
             color: white;
             padding: 15px;
             border: none;
-            border-radius: 5px;
+            border-radius: 12px;
             font-size: 16px;
-            font-weight: bold;
+            font-weight: 700;
+            margin-top: 20px;
             cursor: pointer;
             transition: 0.3s;
         }
-        button:hover { background-color: #218838; }
-        .footer {
-            text-align: center;
-            font-size: 12px;
-            color: #777;
-            margin-top: 20px;
-        }
+        .order-btn:active { transform: scale(0.98); }
+
+        .footer { font-size: 11px; color: #bbb; text-align: center; margin-top: 10px; line-height: 1.6; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Geyi-App</h1>
-    <p>Harar Delivery - Saffisaan!</p>
-</header>
+<div class="logo-container">
+    <div class="logo-circle">G</div>
+    <header>
+        <h1>Geyi-App</h1>
+        <p>Tajaajila Delivery Harar</p>
+    </header>
+</div>
 
-<div class="container">
-    <div class="card">
-        <h2>Ajaja Haaraa Galmeessi</h2>
-        
+<div class="card">
+    <div class="input-group">
         <label>Kutaa Meeshaa:</label>
         <select id="category">
-            <option value="Electronics">Electronics (Bilbila, Charger...)</option>
             <option value="Nyaata">Nyaata & Dhugaatii</option>
-            <option value="Dukaana">Bittaa Dukaanaa (Grocery)</option>
-            <option value="Ergaa">Ergaa & Galmee (Documents)</option>
-            <option value="Qoricha">Qoricha (Pharmacy)</option>
+            <option value="Dukaana">Bittaa Dukaanaa</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Ergaa">Ergaa Biroo</option>
         </select>
-
-        <label>Maqaa Meeshaa:</label>
-        <input type="text" id="itemName" placeholder="Fakkeenya: Samsung Charger">
-
-        <label>Ulfatina (kg):</label>
-        <input type="number" id="weight" placeholder="Max: 5kg" step="0.1">
-
-        <button onclick="processOrder()">Amma Ajajadhu</button>
     </div>
 
-    <div id="status" class="footer"></div>
+    <div class="input-group">
+        <label>Maqaa Meeshaa:</label>
+        <input type="text" id="itemName" placeholder="Fakkeenya: Bilbila, Nyaata...">
+    </div>
+
+    <div class="input-group">
+        <label>Ulfatina (kg):</label>
+        <input type="number" id="weight" placeholder="Max: 5kg" step="0.1" oninput="calculatePrice()">
+    </div>
+
+    <div id="priceDisplay" class="price-box">
+        <p style="margin:0; font-size: 12px; color: #777;">Gatii Tajaajilaa (Estimated)</p>
+        <span id="price">0</span> <small>ETB</small>
+    </div>
+
+    <button class="order-btn" onclick="sendWhatsApp()">Amma Ajajadhu</button>
+</div>
+
+<div class="footer">
+    © 2026 Geyi-App | Powered by Izu Tech<br>
+    Harar, Ethiopia
 </div>
 
 <script>
-    /* JavaScript: Hojii Appii */
-    function processOrder() {
+    function calculatePrice() {
+        const weight = document.getElementById('weight').value;
+        const priceDisplay = document.getElementById('priceDisplay');
+        const priceSpan = document.getElementById('price');
+        
+        if (weight > 0 && weight <= 5) {
+            // Gatii: 40 ETB base + 15 ETB per kg (Akka fedha keetti jijjiiri)
+            let total = 40 + (weight * 15);
+            priceSpan.innerText = total;
+            priceDisplay.style.display = "block";
+        } else {
+            priceDisplay.style.display = "none";
+        }
+    }
+
+    function sendWhatsApp() {
         const category = document.getElementById('category').value;
         const itemName = document.getElementById('itemName').value;
         const weight = document.getElementById('weight').value;
-        const status = document.getElementById('status');
-
-        // Check if empty
+        const price = document.getElementById('price').innerText;
+        
         if (itemName === "" || weight === "") {
-            alert("Maaloo, odeeffannoo guutuu galchaa!");
+            alert("Maaloo, odeeffannoo guutuu galchi!");
             return;
         }
 
-        // Validate weight (Lightweight only)
-        if (parseFloat(weight) > 5) {
-            alert("Dhiifama, Geyi-App meeshaalee 5kg ol ta'an hin baatu.");
-            status.innerHTML = "<span style='color:red;'>Dogoggora: Ulfatina hir'isaa.</span>";
-        } else {
-            // Success Message
-            alert("Ajajni keessan fudhatameera!\n\nKutaa: " + category + "\nMeeshaa: " + itemName + "\nUlfatina: " + weight + "kg");
-            
-            status.innerHTML = "<span style='color:green;'>Ajajni '" + itemName + "' karaa jira!</span>";
-            
-            // Reset fields
-            document.getElementById('itemName').value = "";
-            document.getElementById('weight').value = "";
-        }
+        // LAKKOOFSA BILBILA KEE ASITTI GALCHI
+        const myPhone = "+251950600556"; 
+        const message = `*GE YI-APP ORDER*%0A------------------%0A*Kutaa:* ${category}%0A*Meeshaa:* ${itemName}%0A*Ulfatina:* ${weight}kg%0A*Gatii:* ${price} ETB%0A------------------%0A_Harar Delivery_`;
+        
+        const whatsappUrl = `https://wa.me/${myPhone}?text=${message}`;
+        window.open(whatsappUrl, '_blank');
     }
 </script>
 
