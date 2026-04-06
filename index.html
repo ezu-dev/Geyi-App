@@ -45,7 +45,6 @@
         }
         h1 { margin: 15px 0 5px 0; font-size: 32px; font-weight: 800; }
         
-        /* ALIBABA STYLE GRID */
         .product-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -140,14 +139,14 @@
         <img src="https://images.unsplash.com/photo-1544022613-e87ce71c8599?auto=format&fit=crop&w=300" alt="Foon">
         <p>Foon Sangaa</p>
         <span class="price-tag">800 ETB</span>
-        <button class="buy-btn" onclick="selectItem('Foon Sangaa', 800)">Ajaji</button>
+        <button class="buy-btn" onclick="selectItem('Foon Sangaa', 'Nyaata')">Ajaji</button>
     </div>
 
     <div class="product-card">
         <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=300" alt="Bilbila">
         <p>Bilbila Haaraa</p>
         <span class="price-tag">15,000 ETB</span>
-        <button class="buy-btn" onclick="selectItem('Bilbila Haaraa', 15000)">Ajaji</button>
+        <button class="buy-btn" onclick="selectItem('Bilbila Haaraa', 'Electronics')">Ajaji</button>
     </div>
 </div>
 
@@ -185,18 +184,22 @@
 </div>
 
 <script>
-    function selectItem(name, price) {
+    // 1. Function meeshaa filachuuf
+    function selectItem(name, category) {
         document.getElementById('itemName').value = name;
+        document.getElementById('category').value = category;
         document.querySelector('.card').scrollIntoView({ behavior: 'smooth' });
         alert(name + " filatteetta! Maaloo ulfatina galchi.");
     }
 
+    // 2. Service Worker
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('sw.js');
+            navigator.serviceWorker.register('sw.js').catch(err => console.log(err));
         });
     }
 
+    // 3. Gatii herreguuf
     function calculatePrice() {
         const weight = document.getElementById('weight').value;
         const priceDisplay = document.getElementById('priceDisplay');
@@ -210,14 +213,20 @@
         }
     }
 
+    // 4. WhatsApp irratti erguuf
     function sendWhatsApp() {
         const category = document.getElementById('category').value;
         const itemName = document.getElementById('itemName').value;
         const weight = document.getElementById('weight').value;
         const price = document.getElementById('price').innerText;
-        if (!itemName || !weight) { alert("Maaloo guutii galchi!"); return; }
+        
+        if (!itemName || !weight || weight <= 0) { 
+            alert("Maaloo meeshaa filadhaa ykn maqaa fi ulfatina sirrii galchaa!"); 
+            return; 
+        }
+
         const myPhone = "251950600556"; 
-        const message = `*GE YI-APP ORDER*%0A*Kutaa:* ${category}%0A*Meeshaa:* ${itemName}%0A*Ulfatina:* ${weight}kg%0A*Gatii:* ${price} ETB`;
+        const message = `*GEYI-APP ORDER*%0A*Kutaa:* ${category}%0A*Meeshaa:* ${itemName}%0A*Ulfatina:* ${weight}kg%0A*Gatii:* ${price} ETB`;
         window.open(`https://wa.me/${myPhone}?text=${message}`, '_blank');
     }
 </script>
