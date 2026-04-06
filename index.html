@@ -3,108 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="yVszcL6OGeyv5ETid-6Inp3w-o2-Gb-np24XPKPZwtM"/>
+    <meta name="google-site-verification" content="yVszcL6OGeyv5ETid-6Inp3w-o2-Gb-np24XPKPZwtM"/> 
+    <link rel="icon" href="file_Gey.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#28a745">
+
     <title>Geyi-App | Harar Delivery</title>
+    
     <style>
         :root {
             --primary: #28a745;
             --dark: #1e1e1e;
-            --light: #f4f4f4;
             --white: #ffffff;
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            background-color: var(--light);
-            color: var(--dark);
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1580915411954-282cb1b0d780?auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
+            color: white;
         }
-        /* LOGO DESIGN */
+        /* LOGO STYLE */
         .logo-container {
-            margin-top: 30px;
+            margin-top: 50px;
             text-align: center;
         }
-        .logo-circle {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary), #20c997);
-            border-radius: 18px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
-            box-shadow: 0 10px 20px rgba(40, 167, 69, 0.2);
-            margin: 0 auto;
+        .logo-img {
+            width: 130px;
+            height: auto;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 3px solid var(--white);
         }
-        header h1 { margin: 10px 0 5px 0; font-size: 24px; }
-        header p { margin: 0; color: #777; font-size: 14px; }
-
+        h1 { margin: 15px 0 5px 0; font-size: 32px; font-weight: 800; }
+        
         .card {
             width: 90%;
-            max-width: 400px;
-            background: var(--white);
+            max-width: 380px;
+            background: rgba(255, 255, 255, 0.98);
             padding: 25px;
-            border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-            margin: 25px 0;
+            border-radius: 28px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            margin: 30px 0;
+            color: var(--dark);
         }
-
-        .input-group { margin-bottom: 15px; }
-        label { font-weight: 600; font-size: 13px; color: #555; display: block; margin-bottom: 7px; }
-        
+        .input-group { margin-bottom: 18px; }
+        label { font-weight: 700; font-size: 13px; color: #555; display: block; margin-bottom: 6px; }
         select, input {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #f0f0f0;
-            border-radius: 12px;
-            font-size: 15px;
-            transition: 0.3s;
+            padding: 14px;
+            border: 2px solid #eee;
+            border-radius: 14px;
+            font-size: 16px;
             box-sizing: border-box;
         }
-        select:focus, input:focus { border-color: var(--primary); outline: none; background: #fafafa; }
-
         .price-box {
-            background: #f8fff9;
-            border: 1px dashed var(--primary);
+            background: #e9f7ef;
+            border: 2px dashed var(--primary);
             padding: 15px;
             border-radius: 12px;
             text-align: center;
-            margin-top: 20px;
+            margin-top: 15px;
             display: none;
         }
         .price-box span { font-size: 22px; font-weight: 800; color: var(--primary); }
-
         .order-btn {
             width: 100%;
             background: var(--primary);
             color: white;
-            padding: 15px;
+            padding: 18px;
             border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 700;
-            margin-top: 20px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 800;
             cursor: pointer;
+            margin-top: 20px;
             transition: 0.3s;
         }
-        .order-btn:active { transform: scale(0.98); }
-
-        .footer { font-size: 11px; color: #bbb; text-align: center; margin-top: 10px; line-height: 1.6; }
+        .order-btn:hover { background: #218838; transform: translateY(-3px); }
+        .footer { font-size: 12px; text-align: center; padding: 20px; opacity: 0.9; }
     </style>
 </head>
 <body>
-
-<div class="logo-container">
-    <div class="logo-circle">G</div>
-    <header>
-        <h1>Geyi-App</h1>
-        <p>Tajaajila Delivery Harar</p>
-    </header>
+<div class="logo-container" style="margin-top: 40px; text-align: center;">
+    <img src="file_Gey.png" alt="Geyi-App Logo" style="width: 140px; height: auto; border-radius: 20px; box-shadow: 0 15px 30px rgba(0,0,0,0.4);">
+    <h1 style="color: white; margin-top: 15px;">Geyi-App</h1>
 </div>
+
 
 <div class="card">
     <div class="input-group">
@@ -119,7 +112,7 @@
 
     <div class="input-group">
         <label>Maqaa Meeshaa:</label>
-        <input type="text" id="itemName" placeholder="Fakkeenya: Bilbila, Nyaata...">
+        <input type="text" id="itemName" placeholder="Fakkeenya: Bilbila">
     </div>
 
     <div class="input-group">
@@ -128,11 +121,10 @@
     </div>
 
     <div id="priceDisplay" class="price-box">
-        <p style="margin:0; font-size: 12px; color: #777;">Gatii Tajaajilaa (Estimated)</p>
-        <span id="price">0</span> <small>ETB</small>
+        Gatii: <span id="price">0</span> ETB
     </div>
 
-    <button class="order-btn" onclick="sendWhatsApp()">Amma Ajajadhu</button>
+    <button class="order-btn" onclick="sendWhatsApp()">WhatsApp Irratti Ergi</button>
 </div>
 
 <div class="footer">
@@ -141,13 +133,20 @@
 </div>
 
 <script>
+    // Service Worker weebsaayitiin akkuma banameen akka galmaa'uuf
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('Service Worker: Registered'))
+                .catch(err => console.log('Service Worker: Error:', err));
+        });
+    }
+
     function calculatePrice() {
         const weight = document.getElementById('weight').value;
         const priceDisplay = document.getElementById('priceDisplay');
         const priceSpan = document.getElementById('price');
-        
         if (weight > 0 && weight <= 5) {
-            // Gatii: 40 ETB base + 15 ETB per kg (Akka fedha keetti jijjiiri)
             let total = 40 + (weight * 15);
             priceSpan.innerText = total;
             priceDisplay.style.display = "block";
@@ -161,20 +160,11 @@
         const itemName = document.getElementById('itemName').value;
         const weight = document.getElementById('weight').value;
         const price = document.getElementById('price').innerText;
-        
-        if (itemName === "" || weight === "") {
-            alert("Maaloo, odeeffannoo guutuu galchi!");
-            return;
-        }
-
-        // LAKKOOFSA BILBILA KEE ASITTI GALCHI
-        const myPhone = "+251950600556"; 
-        const message = `*GE YI-APP ORDER*%0A------------------%0A*Kutaa:* ${category}%0A*Meeshaa:* ${itemName}%0A*Ulfatina:* ${weight}kg%0A*Gatii:* ${price} ETB%0A------------------%0A_Harar Delivery_`;
-        
-        const whatsappUrl = `https://wa.me/${myPhone}?text=${message}`;
-        window.open(whatsappUrl, '_blank');
+        if (!itemName || !weight) { alert("Maaloo guutii galchi!"); return; }
+        const myPhone = "251950600556"; 
+        const message = `*GE YI-APP ORDER*%0A*Kutaa:* ${category}%0A*Meeshaa:* ${itemName}%0A*Ulfatina:* ${weight}kg%0A*Gatii:* ${price} ETB`;
+        window.open(`https://wa.me/${myPhone}?text=${message}`, '_blank');
     }
 </script>
-
 </body>
 </html>
